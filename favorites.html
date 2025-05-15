@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Favorite Pokémon</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>My Favorite Pokémon</h1>
+  <p id="favorites-count"></p>
+  <div id="favorites-controls">
+    <button onclick="goBack()">Back to Search</button>
+    <button onclick="downloadFavorites()">Download Favorites</button>
+    <select onchange="sortFavorites(this.value)">
+      <option value="" disabled selected>Sort By</option>
+      <option value="name">Name</option>
+      <option value="id">ID</option>
+    </select>
+  </div>
+
+  <div id="favorites" class="card-grid"></div>
+
+  <script src="favorites.js"></script>
+</body>
+</html>
