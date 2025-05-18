@@ -1,10 +1,14 @@
+// API key to access the Pokémon TCG API
 const apiKey = "32b82991-f96a-4ddf-8c3b-1c7db538c4d4";
+
+// Input fields and elements
 const idInput = document.getElementById("idInput");
 const typeInput = document.getElementById("typeInput");
 const abilityInput = document.getElementById("abilityInput");
 const loader = document.getElementById("loader");
 const results = document.getElementById("results");
 
+// Load last search from URL or localStorage when page is ready
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("name") || "";
@@ -16,32 +20,34 @@ document.addEventListener("DOMContentLoaded", () => {
   abilityInput.value = ability;
 
   if (id || type || ability) {
-    searchPokemon();
+    searchPokemon(); // Automatically perform search
   }
 });
 
-
-//-------------------------------------------------------
-
+// Perform search request to Pokémon TCG API
 function searchPokemon() {
   const id = idInput.value.trim();
   const type = typeInput.value.trim().toLowerCase();
   const ability = abilityInput.value.trim().toLowerCase();
+
+  // Update URL parameters based on search
   const searchParams = new URLSearchParams();
   if (id) searchParams.set("name", id);
   if (type) searchParams.set("type", type);
   if (ability) searchParams.set("ability", ability);
   history.replaceState(null, "", "?" + searchParams.toString());
 
-
+  // Save search to localStorage
   localStorage.setItem("lastSearch", JSON.stringify({ id, type, ability }));
 
+  // Build API query string
   let queryParts = [];
   if (id) queryParts.push(`name:${id}`);
   if (type) queryParts.push(`types:${type}`);
   if (ability) queryParts.push(`abilities.name:${ability}`);
   const query = queryParts.join(" ");
 
+  // Show loader and fetch data
   loader.style.display = "block";
   results.innerHTML = "";
 
@@ -50,17 +56,18 @@ function searchPokemon() {
   })
     .then(res => res.json())
     .then(json => {
-      displayResults(json.data);
+      displayResults(json.data); // Show results
     })
     .catch(err => {
       results.innerHTML = "<p>Error loading Pokémon data.</p>";
       console.error(err);
     })
     .finally(() => {
-      loader.style.display = "none";
+      loader.style.display = "none"; // Hide loader
     });
 }
 
+// Display search results as cards
 function displayResults(cards) {
   if (!cards.length) {
     results.innerHTML = `<p class="no-results">No Pokémon found matching your search.</p>`;
@@ -79,8 +86,7 @@ function displayResults(cards) {
   `).join("");
 }
 
-//------------------------------
-
+// Save selected Pokémon card to localStorage favorites
 function addToFavorites(card) {
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
@@ -94,11 +100,9 @@ function addToFavorites(card) {
   alert(`${card.name} has been added to your favorites.`);
 }
 
-//----------------------------------
-
+// Show favorite cards (optional preview function - unused here)
 function showFavorites() {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
   results.innerHTML = "";
 
   if (!favorites.length) {
@@ -117,12 +121,12 @@ function showFavorites() {
   `).join("");
 }
 
-//--------------------------------------
-
+// Event listener for the "Surprise Me!" button
 document.getElementById("surpriseBtn").addEventListener("click", getRandomPokemon);
 
+// Fetch a random Pokémon card from the API
 function getRandomPokemon() {
-  loader.style.display = "block"; // הצגת הטעינה
+  loader.style.display = "block"; // Show loader
 
   const randomOffset = Math.floor(Math.random() * 1000);
   fetch(`https://api.pokemontcg.io/v2/cards?page=${Math.floor(randomOffset / 250) + 1}&pageSize=250`, {
@@ -139,11 +143,11 @@ function getRandomPokemon() {
     console.error(err);
   })
   .finally(() => {
-    loader.style.display = "none"; // הסתרת הטעינה
+    loader.style.display = "none"; // Hide loader
   });
 }
 
-
+// Show popup with random card info
 function showSurprisePopup(card) {
   const popup = `
     <div class="popup-overlay" onclick="this.remove()">

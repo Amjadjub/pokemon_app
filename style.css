@@ -1,26 +1,36 @@
-/* בסיס כללי לכל הדפים */
+/* ================================================== */
+/* 🌐 BASE LAYOUT - Shared across all pages */
+/* ================================================== */
+
+/* Basic page layout: font, spacing, text center */
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
   text-align: center;
 }
 
+/* Main page title */
 .page-title {
   font-size: 32px;
   margin-bottom: 10px;
   color: #2a75bb;
 }
 
-/* רקעים לפי עמוד */
+/* Background for search page */
 .search-page {
   background-color: #f0f8ff;
 }
 
+/* Background for favorites page */
 .favorites-page {
   background-color: #a4e1e6;
 }
 
-/* כפתורים כלליים */
+/* ================================================== */
+/* 🎛️ BUTTONS - Generic and Specific */
+/* ================================================== */
+
+/* Shared button design */
 .btn {
   padding: 10px 20px;
   font-size: 16px;
@@ -30,7 +40,7 @@ body {
   transition: background-color 0.3s;
 }
 
-/* כפתורים ייחודיים */
+/* Back button style (Favorites page) */
 .btn-back {
   background-color: #3498db;
   color: white;
@@ -39,6 +49,7 @@ body {
   background-color: #2980b9;
 }
 
+/* Buttons for downloading or navigating to favorites */
 .btn-download,
 .btn-favorites {
   background-color: #2ecc71;
@@ -49,6 +60,7 @@ body {
   background-color: #27ae60;
 }
 
+/* Search button */
 .btn-search {
   background-color: #2a75bb;
   color: white;
@@ -57,6 +69,7 @@ body {
   background-color: #1b4e8a;
 }
 
+/* Surprise Me! button */
 .surprise-btn {
   background-color: #ffcb05;
   color: #2a75bb;
@@ -69,23 +82,48 @@ body {
   background-color: #f2b807;
 }
 
-/* טופס חיפוש */
+/* ================================================== */
+/* 🔍 SEARCH FORM STYLING (index.html) */
+/* ================================================== */
+
+/* Form container */
 .search-form {
-  margin-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 500px;
-  margin: 0 auto 30px auto;
-}
-.search-form input {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #e3f6f9;
 }
 
-/* אזור כפתורים בדפים */
+/* Input field style */
+.search-form input {
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #2a75bb;
+  background-color: #ffffff;
+  color: #2a75bb;
+  font-weight: bold;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+}
+
+/* Input on focus */
+.search-form input:focus {
+  border-color: #1b4e8a;
+  box-shadow: 0 0 5px rgba(26, 103, 182, 0.5);
+}
+
+/* Placeholder text */
+.search-form input::placeholder {
+  color: #a0bcd5;
+  font-style: italic;
+}
+
+/* ================================================== */
+/* 🎛️ BUTTON BARS - NAVIGATION & CONTROLS */
+/* ================================================== */
+
+/* Flex layout for button groups */
 .controls-bar,
 .nav-buttons {
   display: flex;
@@ -95,7 +133,11 @@ body {
   margin-bottom: 25px;
 }
 
-/* רשימת קלפים */
+/* ================================================== */
+/* 📦 CARD GRID - Used on both pages */
+/* ================================================== */
+
+/* Layout for Pokémon cards */
 .card-grid,
 .results-grid {
   display: grid;
@@ -104,7 +146,11 @@ body {
   padding: 20px;
 }
 
-/* כרטיס פוקימון */
+/* ================================================== */
+/* 🧱 CARD DESIGN & BUTTONS */
+/* ================================================== */
+
+/* Pokémon card container */
 .pokemon-card {
   border: 1px solid #ddd;
   padding: 15px;
@@ -113,6 +159,8 @@ body {
   text-align: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
+/* Buttons inside cards */
 .pokemon-card button {
   margin-top: 8px;
   padding: 8px 12px;
@@ -122,6 +170,8 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
+/* Remove from Favorites button (red) */
 .pokemon-card .remove {
   background-color: #e74c3c;
   color: white;
@@ -129,6 +179,8 @@ body {
 .pokemon-card .remove:hover {
   background-color: #c0392b;
 }
+
+/* More Info button (blue) */
 .pokemon-card .info-btn {
   background-color: #2a75bb;
   color: white;
@@ -137,7 +189,60 @@ body {
   background-color: #1b4e8a;
 }
 
-/* טעינה */
+/* Add to Favorites button (orange) */
+.add-fav-btn {
+  background-color: #ff9800;
+  color: white;
+  font-weight: bold;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.add-fav-btn:hover {
+  background-color: #e68900;
+}
+
+/* ================================================== */
+/* 📊 FAVORITES EXTRAS */
+/* ================================================== */
+
+/* Count display for favorite Pokémon */
+.favorites-count {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  display: inline-block;
+  background-color: #d6f5f2;
+  color: #2a75bb;
+  border: 2px solid #2a75bb;
+  border-radius: 8px;
+}
+
+/* Sort dropdown menu */
+.sort-select {
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 2px solid #2a75bb;
+  background-color: #ffffff;
+  color: #2a75bb;
+  font-weight: bold;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+.sort-select:hover {
+  border-color: #1b4e8a;
+  background-color: #f0f8ff;
+}
+
+/* ================================================== */
+/* 🔄 LOADER + NO RESULTS */
+/* ================================================== */
+
+/* Spinning loader */
 .loader {
   border: 8px solid #f3f3f3;
   border-top: 8px solid #3498db;
@@ -148,12 +253,13 @@ body {
   margin: auto;
   margin-bottom: 10px;
 }
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-/* ללא תוצאות */
+/* No results message */
 .no-results {
   color: #d9534f;
   background-color: #fbe9e7;
@@ -170,7 +276,11 @@ body {
   min-height: 200px;
 }
 
-/* פופאפ */
+/* ================================================== */
+/* 💬 POPUP OVERLAY */
+/* ================================================== */
+
+/* Dark overlay background for popup */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -183,6 +293,8 @@ body {
   justify-content: center;
   z-index: 999;
 }
+
+/* Popup box content */
 .popup {
   background: white;
   padding: 20px;
@@ -191,51 +303,9 @@ body {
   width: 90%;
   text-align: center;
 }
+
 .popup img {
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
-}
-
-.add-fav-btn {
-  background-color: #ff9800;
-  color: white;
-  font-weight: bold;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.add-fav-btn:hover {
-  background-color: #e68900;
-}
-.favorites-count {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  padding: 10px 20px;
-  display: inline-block;
-  background-color: #d6f5f2;
-  color: #2a75bb;
-  border: 2px solid #2a75bb;
-  border-radius: 8px;
-}
-
-.sort-select {
-  padding: 10px 16px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 2px solid #2a75bb;
-  background-color: #ffffff;
-  color: #2a75bb;
-  font-weight: bold;
-  cursor: pointer;
-  transition: border-color 0.3s, background-color 0.3s;
-}
-
-.sort-select:hover {
-  border-color: #1b4e8a;
-  background-color: #f0f8ff;
 }

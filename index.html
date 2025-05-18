@@ -7,25 +7,37 @@
 </head>
 <body class="search-page">
   <main>
+    <!-- Main title of the search page -->
     <h1 class="page-title">Pokémon Search</h1>
 
+    <!-- Section containing the search form -->
     <section class="search-form">
+      <!-- Loader spinner displayed during API call -->
       <div id="loader" class="loader" style="display: none;"></div>
 
+      <!-- Input field for Pokémon name -->
       <input type="text" id="idInput" placeholder="Name">
+      <!-- Input field for Pokémon type -->
       <input type="text" id="typeInput" placeholder="Type (e.g. fire)">
+      <!-- Input field for Pokémon ability -->
       <input type="text" id="abilityInput" placeholder="Ability (e.g. overgrow)">
+      <!-- Button to trigger the search function -->
       <button class="btn btn-search" onclick="searchPokemon()">Search</button>
     </section>
 
+    <!-- Navigation buttons -->
     <div class="nav-buttons">
+      <!-- Button to navigate to the favorites page -->
       <button class="btn btn-favorites" onclick="window.location.href='favorites.html'">Go to Favorites</button>
+      <!-- Button to fetch and show a random Pokémon card -->
       <button id="surpriseBtn" class="btn surprise-btn" title="Get a random Pokémon card">Surprise Me!</button>
     </div>
 
+    <!-- Section to display search results -->
     <section id="results" class="results-grid"></section>
   </main>
 
+  <!-- JavaScript file that handles search logic -->
   <script src="script.js"></script>
 </body>
 </html>
