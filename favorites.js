@@ -39,7 +39,16 @@ function removeFromFavorites(id) {
 }
 
 function goBack() {
-  window.location.href = "index.html"; 
+    const lastSearch = JSON.parse(localStorage.getItem("lastSearch"));
+  if (lastSearch) {
+    const params = new URLSearchParams();
+    if (lastSearch.id) params.set("name", lastSearch.id);
+    if (lastSearch.type) params.set("type", lastSearch.type);
+    if (lastSearch.ability) params.set("ability", lastSearch.ability);
+    window.location.href = `index.html?${params.toString()}`;
+  } else {
+    window.location.href = "index.html";
+  }
 }
 
 function downloadFavorites() {
