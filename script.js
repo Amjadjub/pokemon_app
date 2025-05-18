@@ -74,7 +74,7 @@ function displayResults(cards) {
       <p><strong>Type:</strong> ${card.types?.join(", ") || "N/A"}</p>
       <p><strong>Ability:</strong> ${card.abilities?.map(a => a.name).join(", ") || "None"}</p>
       <p><strong>ID:</strong> ${card.id}</p>
-      <button onclick='addToFavorites(${JSON.stringify(card).replace(/'/g, "&apos;")})'>Add to Favorites</button>
+      <button class="add-fav-btn" onclick='addToFavorites(${JSON.stringify(card).replace(/'/g, "&apos;")})'>Add to Favorites</button>
     </div>
   `).join("");
 }

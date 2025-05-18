@@ -5,20 +5,22 @@
   <title>My Favorite Pokémon</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <h1>My Favorite Pokémon</h1>
-  <p id="favorites-count"></p>
-  <div id="favorites-controls">
-    <button onclick="goBack()">Back to Search</button>
-    <button onclick="downloadFavorites()">Download Favorites</button>
-    <select onchange="sortFavorites(this.value)">
+<body class="favorites-page">
+  <h1 class="page-title">My Favorite Pokémon</h1>
+
+  <p id="favorites-count" class="favorites-count"></p>
+
+  <div class="controls-bar">
+    <button class="btn btn-back" onclick="goBack()">Back to Search</button>
+    <button class="btn btn-download" onclick="downloadFavorites()">Download Favorites</button>
+    <select class="sort-select" onchange="sortFavorites(this.value)">
       <option value="" disabled selected>Sort By</option>
       <option value="name">Name</option>
       <option value="id">ID</option>
     </select>
   </div>
 
-  <div id="favorites" class="card-grid"></div>
+  <section id="favorites" class="card-grid"></section>
 
   <script src="favorites.js"></script>
 </body>

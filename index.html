@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Pokémon Search</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Pokémon Search</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Pokémon Search</h1>
+<body class="search-page">
+  <main>
+    <h1 class="page-title">Pokémon Search</h1>
 
-    <div id="search-form">
-    <div id="loader" class="loader" style="display:none"></div>
-    <input type="text" id="idInput" placeholder="Name">
-    <input type="text" id="typeInput" placeholder="Type (e.g. fire)">
-    <input type="text" id="abilityInput" placeholder="Ability (e.g. overgrow)">
-    <button onclick="searchPokemon()">Search</button>
-</div>
-    <button onclick="window.location.href='favorites.html'">Go to Favorites</button>
-    <button id="surpriseBtn" class="surprise-btn" title="Get a random Pokémon card">Surprise Me!</button>
+    <section class="search-form">
+      <div id="loader" class="loader" style="display: none;"></div>
 
+      <input type="text" id="idInput" placeholder="Name">
+      <input type="text" id="typeInput" placeholder="Type (e.g. fire)">
+      <input type="text" id="abilityInput" placeholder="Ability (e.g. overgrow)">
+      <button class="btn btn-search" onclick="searchPokemon()">Search</button>
+    </section>
 
-    <div id="results" class="card-grid"></div>
+    <div class="nav-buttons">
+      <button class="btn btn-favorites" onclick="window.location.href='favorites.html'">Go to Favorites</button>
+      <button id="surpriseBtn" class="btn surprise-btn" title="Get a random Pokémon card">Surprise Me!</button>
+    </div>
 
-    
+    <section id="results" class="results-grid"></section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>

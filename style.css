@@ -1,51 +1,143 @@
+/* בסיס כללי לכל הדפים */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f0f8ff;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  text-align: center;
 }
 
-#search-form {
-    margin-bottom: 20px;
+.page-title {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #2a75bb;
 }
 
-input {
-    padding: 10px;
-    font-size: 16px;
+/* רקעים לפי עמוד */
+.search-page {
+  background-color: #f0f8ff;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+.favorites-page {
+  background-color: #a4e1e6;
 }
 
+/* כפתורים כלליים */
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+/* כפתורים ייחודיים */
+.btn-back {
+  background-color: #3498db;
+  color: white;
+}
+.btn-back:hover {
+  background-color: #2980b9;
+}
+
+.btn-download,
+.btn-favorites {
+  background-color: #2ecc71;
+  color: white;
+}
+.btn-download:hover,
+.btn-favorites:hover {
+  background-color: #27ae60;
+}
+
+.btn-search {
+  background-color: #2a75bb;
+  color: white;
+}
+.btn-search:hover {
+  background-color: #1b4e8a;
+}
+
+.surprise-btn {
+  background-color: #ffcb05;
+  color: #2a75bb;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+.surprise-btn:hover {
+  background-color: #f2b807;
+}
+
+/* טופס חיפוש */
+.search-form {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+}
+.search-form input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* אזור כפתורים בדפים */
+.controls-bar,
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+/* רשימת קלפים */
+.card-grid,
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* כרטיס פוקימון */
 .pokemon-card {
   border: 1px solid #ddd;
   padding: 15px;
   background-color: white;
   border-radius: 10px;
-  width: 250px;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
 .pokemon-card button {
-  margin-top: 10px;
+  margin-top: 8px;
   padding: 8px 12px;
   font-size: 14px;
-  background-color: #ffcb05;
-  color: #2a75bb;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
-
-.pokemon-card button:hover {
-  background-color: #f2b807;
+.pokemon-card .remove {
+  background-color: #e74c3c;
+  color: white;
+}
+.pokemon-card .remove:hover {
+  background-color: #c0392b;
+}
+.pokemon-card .info-btn {
+  background-color: #2a75bb;
+  color: white;
+}
+.pokemon-card .info-btn:hover {
+  background-color: #1b4e8a;
 }
 
+/* טעינה */
 .loader {
   border: 8px solid #f3f3f3;
   border-top: 8px solid #3498db;
@@ -56,15 +148,15 @@ button {
   margin: auto;
   margin-bottom: 10px;
 }
-
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
+/* ללא תוצאות */
 .no-results {
-  color: #d9534f; 
-  background-color: #fbe9e7; 
+  color: #d9534f;
+  background-color: #fbe9e7;
   padding: 12px 20px;
   border: 1px solid #f5c6cb;
   border-radius: 8px;
@@ -78,37 +170,7 @@ button {
   min-height: 200px;
 }
 
-#results {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  justify-items: center;
-  padding: 20px;
-}
-
-.pokemon-card button.remove {
-  background-color: #e74c3c;
-  color: white;
-}
-
-.pokemon-card button.remove:hover {
-  background-color: #c0392b;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
-}
-
-#favorites-count {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #2a75bb;
-}
-
+/* פופאפ */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -121,7 +183,6 @@ button {
   justify-content: center;
   z-index: 999;
 }
-
 .popup {
   background: white;
   padding: 20px;
@@ -130,42 +191,51 @@ button {
   width: 90%;
   text-align: center;
 }
-
 .popup img {
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
 }
 
-.info-btn {
-  background-color: #2a75bb !important;
-  color: white !important;
+.add-fav-btn {
+  background-color: #ff9800;
+  color: white;
+  font-weight: bold;
+  padding: 8px 12px;
   border: none;
   border-radius: 6px;
-  padding: 8px 12px;
-  margin-top: 8px;
-  font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.info-btn:hover {
-  background-color: #1b4e8a;
+.add-fav-btn:hover {
+  background-color: #e68900;
+}
+.favorites-count {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  display: inline-block;
+  background-color: #d6f5f2;
+  color: #2a75bb;
+  border: 2px solid #2a75bb;
+  border-radius: 8px;
 }
 
-.surprise-btn {
-  background-color: #ffcb05;
+.sort-select {
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 2px solid #2a75bb;
+  background-color: #ffffff;
   color: #2a75bb;
   font-weight: bold;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  margin-top: 15px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: border-color 0.3s, background-color 0.3s;
 }
 
-.surprise-btn:hover {
-  background-color: #f2b807;
+.sort-select:hover {
+  border-color: #1b4e8a;
+  background-color: #f0f8ff;
 }
