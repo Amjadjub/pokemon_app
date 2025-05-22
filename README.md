@@ -17,3 +17,10 @@ This is a simple web app to search for and save your favorite Pokémon cards usi
 ## Created By
 - Amjad Jubran & Naseem Srour
 - Project for academic assignment (2025)
+
+## Web links 
+- GITHUB link :
+  https://github.com/Amjadjub/pokemon_app.git
+
+- Online Web link :
+  https://amjadjub.github.io/pokemon_app/

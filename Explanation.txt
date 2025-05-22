@@ -2,6 +2,14 @@ This document explains the structure of the Pokémon search project, including k
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+GITHUB link :
+https://github.com/Amjadjub/pokemon_app.git
+
+Online Web link :
+https://amjadjub.github.io/pokemon_app/
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 index.html 
 - The main search page for Pokémon cards.
 - Contains a search form to filter by name , type or ability.
