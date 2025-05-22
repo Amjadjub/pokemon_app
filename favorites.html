@@ -6,23 +6,16 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<!-- This class gives the page a light blue background (from CSS) -->
 <body class="favorites-page">
-  <!-- Page title -->
   <h1 class="page-title">My Favorite Pokémon</h1>
 
-  <!-- Displays the number of favorite Pokémon -->
   <p id="favorites-count" class="favorites-count"></p>
 
-  <!-- Control buttons and sorting menu -->
   <div class="controls-bar">
-    <!-- Button to go back to the main search page, restoring last search -->
     <button class="btn btn-back" onclick="goBack()">Back to Search</button>
 
-    <!-- Button to download the favorites list as a JSON file -->
     <button class="btn btn-download" onclick="downloadFavorites()">Download Favorites</button>
 
-    <!-- Dropdown to sort the favorites list -->
     <select class="sort-select" onchange="sortFavorites(this.value)">
       <option value="" disabled selected>Sort By</option>
       <option value="name">Name</option>
@@ -30,10 +23,8 @@
     </select>
   </div>
 
-  <!-- Container where all favorite Pokémon cards will be displayed -->
   <section id="favorites" class="card-grid"></section>
 
-  <!-- JavaScript logic for displaying and managing favorites -->
   <script src="favorites.js"></script>
 </body>
 </html>

@@ -1,0 +1,97 @@
+This document explains the structure of the Pokémon search project, including key features, main functions, file purposes, and development notes.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+index.html 
+- The main search page for Pokémon cards.
+- Contains a search form to filter by name , type or ability.
+- Includes navigation to the Favorite page and "Surprise Me!" button.
+- Search results are displayed in a card-based grid layout.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+favorites.html
+- Displays all Pokémon cards the user marked as favorites.
+- Includes a count of favorites, sorting options, remove buttons, and an option to download the list.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+script.js
+
+- searchPokemon() :
+
+1- Sends a request to the Pokémon TCG API using the search inputs.
+2- Stores the latest search in both localStorage and the URL query parameters.
+3- Displays a loader while fetching data.
+
+- displayResults(cards)
+1- Renders the result cards from the API response.
+2- Each card includes a button to "Add to Favorites".
+
+- addToFavorites(card)
+1- Saves the selected card to the list of favorites in localStorage.
+2- Checks for duplicates based on the card ID.
+
+- getRandomPokemon()
+1- Fetches a random card from the API and opens a popup with details.
+
+- showSurprisePopup(card)
+1- Displays a styled popup showing card info (name, type, rarity, set).
+2- Includes a close button styled with popup-close-btn.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ favorites.js
+- showFavorites()
+1- Called on page load.
+2- Reads favorites from localStorage and displays them with "Remove" and "More Info" buttons.
+
+- removeFromFavorites(id)
+1- Removes a card by ID from the favorites list and updates the UI.
+2- Alerts the user after removal.
+
+- goBack()
+1- Redirects the user back to index.html, preserving the last search inputs using localStorage.
+
+- downloadFavorites()
+1- Allows users to download the entire favorites list as a .json file.
+
+- sortFavorites(by)
+1- Sorts the favorites by name or id, then re-renders the list.
+
+- showMoreInfo(card)
+1- Opens a popup showing extended card info: flavor text, rarity, evolves to, etc.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ style.css
+- The style file is structured in logical sections:
+
+- Base layout (body, titles)
+
+- Search page (.search-page, .search-form, .btn-search)
+
+- Favorites page (.favorites-page, .favorites-count, .controls-bar)
+
+- Card styles (.pokemon-card, internal buttons)
+
+- Loader, empty results message, popup design
+
+- The CSS uses consistent rounded corners, modern colors, hover effects, and a responsive grid layout.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ Key Features & Technologies
+- Integration with the Pokémon TCG API for real card data.
+
+- Usage of localStorage for persisting favorites and recent searches.
+
+Implementation of modern JavaScript techniques:
+
+- fetch, map, filter, localStorage, addEventListener, querySelector
+
+- Responsive design using CSS Grid and Flexbox.
+
+- Dynamic popups for detailed card display.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------

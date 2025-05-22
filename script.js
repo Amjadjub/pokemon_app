@@ -100,26 +100,6 @@ function addToFavorites(card) {
   alert(`${card.name} has been added to your favorites.`);
 }
 
-// Show favorite cards (optional preview function - unused here)
-function showFavorites() {
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  results.innerHTML = "";
-
-  if (!favorites.length) {
-    results.innerHTML = "<p>You have no favorite Pokémon yet.</p>";
-    return;
-  }
-
-  results.innerHTML = favorites.map(card => `
-    <div class="pokemon-card">
-      <img src="${card.images.small}" alt="${card.name}">
-      <h3>${card.name}</h3>
-      <p><strong>Type:</strong> ${card.types?.join(", ") || "N/A"}</p>
-      <p><strong>Attacks:</strong> ${card.attacks?.map(a => a.name).join(", ") || "None"}</p>
-      <p><strong>ID:</strong> ${card.id}</p>
-    </div>
-  `).join("");
-}
 
 // Event listener for the "Surprise Me!" button
 document.getElementById("surpriseBtn").addEventListener("click", getRandomPokemon);
@@ -158,7 +138,7 @@ function showSurprisePopup(card) {
         <p><strong>Ability:</strong> ${card.abilities?.map(a => a.name).join(", ") || "None"}</p>
         <p><strong>Rarity:</strong> ${card.rarity || "Unknown"}</p>
         <p><strong>Set:</strong> ${card.set?.name || "Unknown"}</p>
-        <button onclick="document.querySelector('.popup-overlay').remove()">Close</button>
+        <button class="popup-close-btn" onclick="document.querySelector('.popup-overlay').remove()">Close</button>
       </div>
     </div>
   `;

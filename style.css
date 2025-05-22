@@ -309,3 +309,21 @@ body {
   height: auto;
   margin-bottom: 10px;
 }
+
+/* Popup close button */
+.popup-close-btn {
+  margin-top: 15px;
+  background-color: #2ec246;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.popup-close-btn:hover {
+  background-color: #0c751e;
+}

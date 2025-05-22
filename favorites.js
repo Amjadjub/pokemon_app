@@ -100,7 +100,7 @@ function showMoreInfo(card) {
         <p><strong>Set:</strong> ${card.set?.name || "Unknown"}</p>
         <p><strong>Flavor Text:</strong> ${card.flavorText || "N/A"}</p>
         <p><strong>Evolves To:</strong> ${card.evolvesTo?.join(", ") || "N/A"}</p>
-        <button onclick="document.querySelector('.popup-overlay').remove()">Close</button>
+        <button class="popup-close-btn" onclick="document.querySelector('.popup-overlay').remove()">Close</button>
       </div>
     </div>
   `;
