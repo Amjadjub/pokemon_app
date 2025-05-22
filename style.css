@@ -1,5 +1,5 @@
 /* ================================================== */
-/* 🌐 BASE LAYOUT - Shared across all pages */
+/*  BASE LAYOUT - Shared across all pages */
 /* ================================================== */
 
 /* Basic page layout: font, spacing, text center */
@@ -27,7 +27,7 @@ body {
 }
 
 /* ================================================== */
-/* 🎛️ BUTTONS - Generic and Specific */
+/*  BUTTONS - Generic and Specific */
 /* ================================================== */
 
 /* Shared button design */
@@ -83,7 +83,7 @@ body {
 }
 
 /* ================================================== */
-/* 🔍 SEARCH FORM STYLING (index.html) */
+/*  SEARCH FORM STYLING (index.html) */
 /* ================================================== */
 
 /* Form container */
@@ -120,7 +120,7 @@ body {
 }
 
 /* ================================================== */
-/* 🎛️ BUTTON BARS - NAVIGATION & CONTROLS */
+/*  BUTTON BARS - NAVIGATION & CONTROLS */
 /* ================================================== */
 
 /* Flex layout for button groups */
@@ -134,7 +134,7 @@ body {
 }
 
 /* ================================================== */
-/* 📦 CARD GRID - Used on both pages */
+/*  CARD GRID - Used on both pages */
 /* ================================================== */
 
 /* Layout for Pokémon cards */
@@ -147,7 +147,7 @@ body {
 }
 
 /* ================================================== */
-/* 🧱 CARD DESIGN & BUTTONS */
+/*CARD DESIGN & BUTTONS */
 /* ================================================== */
 
 /* Pokémon card container */
@@ -205,7 +205,7 @@ body {
 }
 
 /* ================================================== */
-/* 📊 FAVORITES EXTRAS */
+/* FAVORITES EXTRAS */
 /* ================================================== */
 
 /* Count display for favorite Pokémon */
@@ -239,7 +239,7 @@ body {
 }
 
 /* ================================================== */
-/* 🔄 LOADER + NO RESULTS */
+/*  LOADER + NO RESULTS */
 /* ================================================== */
 
 /* Spinning loader */
@@ -277,7 +277,7 @@ body {
 }
 
 /* ================================================== */
-/* 💬 POPUP OVERLAY */
+/*  POPUP OVERLAY */
 /* ================================================== */
 
 /* Dark overlay background for popup */

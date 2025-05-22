@@ -1,15 +1,11 @@
-// When the page loads, display the favorite cards
 document.addEventListener("DOMContentLoaded", showFavorites);
 
-// Render the favorite Pokémon cards from localStorage
 function showFavorites() {
   const container = document.getElementById("favorites");
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-  // Update the count of favorites on the page
   document.getElementById("favorites-count").textContent = `You have ${favorites.length} favorite Pokémon.`;
 
-  // If there are no favorites, show a message
   if (favorites.length === 0) {
     container.innerHTML = `<p class="no-results">You have no favorite Pokémon.</p>`;
     container.style.display = "flex";
@@ -19,7 +15,6 @@ function showFavorites() {
     return;
   }
 
-  // Display all favorite Pokémon as cards
   container.innerHTML = favorites.map(card => `
     <div class="pokemon-card">
       <img src="${card.images.small}" alt="${card.name}" />
@@ -33,14 +28,11 @@ function showFavorites() {
   `).join("");
 }
 
-// Remove a Pokémon from the favorites list
 function removeFromFavorites(id) {
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-  // Find the removed card (for alert)
   const removed = favorites.find(p => p.id === id);
 
-  // Filter out the removed card
   favorites = favorites.filter(p => p.id !== id);
   localStorage.setItem("favorites", JSON.stringify(favorites));
 
@@ -51,7 +43,6 @@ function removeFromFavorites(id) {
   showFavorites(); // Refresh the display
 }
 
-// Navigate back to search page and restore previous search parameters
 function goBack() {
   const lastSearch = JSON.parse(localStorage.getItem("lastSearch"));
   if (lastSearch) {
@@ -65,7 +56,6 @@ function goBack() {
   }
 }
 
-// Download the current favorites list as a JSON file
 function downloadFavorites() {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
   const blob = new Blob([JSON.stringify(favorites, null, 2)], { type: "application/json" });
@@ -77,7 +67,6 @@ function downloadFavorites() {
   URL.revokeObjectURL(url);
 }
 
-// Sort the favorites list based on user selection (name or ID)
 function sortFavorites(by) {
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
   if (by === "name") {
@@ -89,7 +78,6 @@ function sortFavorites(by) {
   showFavorites(); // Refresh with sorted list
 }
 
-// Show detailed info about a specific card in a popup window
 function showMoreInfo(card) {
   const extraInfo = `
     <div class="popup-overlay" onclick="this.remove()">
